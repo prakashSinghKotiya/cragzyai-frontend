@@ -74,6 +74,7 @@ export default function Hero() {
                   if (!data.error) {
                     console.log("Login successful, navigating to home...");
                     toast.success("Login successful");
+                    console.log("login",data);
                     setUser(data.data.user); // Update the user state in context
 
                    
