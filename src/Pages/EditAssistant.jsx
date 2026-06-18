@@ -36,7 +36,7 @@ console.log("editassis:",user )
    
   };
 
-  const embedCode = `<script src="http://localhost:5173/Aiassistant.js" data-user-id="${user?.data._id}"></script>`;
+  const embedCode = `<script src="https://cragzyai-frontend.onrender.com/Aiassistant.js" data-user-id="${user?.data._id}"></script>`;
 
   const copyCode = () => {
     navigator.clipboard.writeText(embedCode);
