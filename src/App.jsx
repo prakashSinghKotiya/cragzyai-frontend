@@ -25,6 +25,7 @@ function App() {
           }
 
         );
+        console.log("app",response);
         
         setUser(response.data);
 

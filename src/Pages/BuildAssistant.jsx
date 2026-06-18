@@ -257,7 +257,7 @@ export default function AssistantBuilder() {
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  ApiKey:
+                  geminiApiKey:
                     e.target.value,
                 })
               }
