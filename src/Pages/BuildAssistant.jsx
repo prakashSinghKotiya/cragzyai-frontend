@@ -23,21 +23,20 @@ export default function AssistantBuilder() {
     name: "",
     route: "",
   });
-
-  console.log(user);
+  console.log("buildassis",user);
 
   const [formData, setFormData] = useState({
-    assistantName:  user?.assistantName || "",
-    businessName: user?.businessName || "",
-    businessType: user?.businessType || "",
-    businessDescription: user?.businessDescription || "",
+    assistantName:  user?.data.assistantName || "",
+    businessName: user?.data.businessName || "",
+    businessType: user?.data.businessType || "",
+    businessDescription: user?.data.businessDescription || "",
 
     theme: "light",
     tone: "friendly",
 
-    geminiApiKey: user?.geminiApiKey || "",
+    geminiApiKey: user?.data.geminiApiKey || "",
 
-    navigationPages: user?.navigationPages || [],
+    navigationPages: user?.data.navigationPages || [],
   });
 
   

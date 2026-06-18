@@ -53,7 +53,7 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {!user?.isSetupComplete ? (
+          {!user?.data?.isSetupComplete ? (
             <button
               onClick={() => navigate("/create")}
               className="hover:text-violet-400 transition"
@@ -80,7 +80,7 @@ function Navbar() {
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center gap-4">
           <img
-            src={user?.image || defaultAvatar}
+            src={user?.data?.image || defaultAvatar}
             alt="profile"
             className="h-10 w-10 rounded-full border border-zinc-700 object-cover"
             referrerPolicy="no-referrer"
@@ -88,7 +88,7 @@ function Navbar() {
 
            <div className="flex flex-col">
     <span className="text-sm font-medium">
-      {user?.name || "User"}
+      {user?.data?.name || "User"}
     </span>
 
     <button
@@ -115,7 +115,7 @@ function Navbar() {
         <div className="md:hidden bg-zinc-900 border-t border-zinc-800 px-6 py-5">
           <div className="flex items-center gap-3 mb-6">
             <img
-              src={user?.image || defaultAvatar}
+              src={user?.data?.image || defaultAvatar}
               alt="profile"
               className="h-12 w-12 rounded-full object-cover"
               referrerPolicy="no-referrer"
@@ -123,17 +123,17 @@ function Navbar() {
 
             <div>
               <p className="font-semibold">
-                {user?.name || "User"}
+                {user?.data?.name || "User"}
               </p>
 
               <p className="text-xs text-zinc-400">
-                {user?.email}
+                {user?.data?.email}
               </p>
             </div>
           </div>
 
           <div className="flex flex-col gap-4">
-            {!user?.isSetupComplete ? (
+            {!user?.data?.isSetupComplete ? (
               <button
                 onClick={() => {
                   navigate("/create");

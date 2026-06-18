@@ -9,7 +9,7 @@ export default function EditPage() {
 const {user}=useAuth();
   const [copied, setCopied] = useState(false);
 
-  const totalMsg = user?.plan === "free"? (user?.requestLimit || 0) - (user?.totalMessages || 0): "Unlimited";
+  const totalMsg = user?.data.plan === "free"? (user?.data.requestLimit || 0) - (user?.data.totalMessages || 0): "Unlimited";
 
     const remainingDays =
   user?.data.proExpiresAt
@@ -25,12 +25,12 @@ const {user}=useAuth();
       )
     : 0;
 
-console.log(user)
+console.log("editassis:",user )
   // Replace with actual user data
   const assistant = {
-    name: user.assistantName || "My Assistant",
-    plan: user.plan || "Free Plan",
-    status: user.geminiStatus || "Active",
+    name: user.data.assistantName || "My Assistant",
+    plan: user.data.plan || "Free Plan",
+    status: user.data.geminiStatus || "Active",
     TokenLeft: totalMsg|| 200,
     expiresat:remainingDays
    

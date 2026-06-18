@@ -23,7 +23,7 @@ export default function Home() {
   const{user } = useAuth();
   const [chatOpen, setChatOpen] = useState(false);
 
-  
+  console.log(" Home component:", user);
 
   
 
