@@ -27,7 +27,7 @@ function App() {
         );
         console.log("app",response);
         
-        setUser(response.data);
+        setUser(response.data.data);
 
         
       } catch (error) {
