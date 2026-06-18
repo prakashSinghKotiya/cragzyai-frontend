@@ -1,5 +1,5 @@
-import Hero from "../components/Hero";
-import BentoSection from "../components/BentoSection";
+import Hero from "../Components/Hero";
+import BentoSection from "../Components/BentoSection";
 
 export default function LandingPage() {
   const steps = [
