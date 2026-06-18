@@ -92,7 +92,7 @@ Object.assign(popup.style, {
 
       <div class="ai-info">
         <h3 class="ai-title">
-          Hello! I'm ${assistantdata?.assistantName || "AI Assistant"}
+          Hello! I'm ${assistantdata?.assistantName  || "AI Assistant"}
         </h3>
 
         </div>

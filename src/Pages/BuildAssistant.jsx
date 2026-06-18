@@ -24,6 +24,8 @@ export default function AssistantBuilder() {
     route: "",
   });
 
+  console.log(user);
+
   const [formData, setFormData] = useState({
     assistantName:  user?.data.assistantName || "",
     businessName: user?.data.businessName || "",
