@@ -26,17 +26,17 @@ export default function AssistantBuilder() {
   console.log("buildassis",user);
 
   const [formData, setFormData] = useState({
-    assistantName:  user?.data.assistantName || "",
-    businessName: user?.data.businessName || "",
-    businessType: user?.data.businessType || "",
-    businessDescription: user?.data.businessDescription || "",
+    assistantName:  user?.assistantName || "",
+    businessName: user?.businessName || "",
+    businessType: user?.businessType || "",
+    businessDescription: user?.businessDescription || "",
 
     theme: "light",
     tone: "friendly",
 
-    geminiApiKey: user?.data.geminiApiKey || "",
+    geminiApiKey: user?.geminiApiKey || "",
 
-    navigationPages: user?.data.navigationPages || [],
+    navigationPages: user?.navigationPages || [],
   });
 
   
@@ -86,7 +86,7 @@ export default function AssistantBuilder() {
 
       console.log(formData);
     const response = await axios.post("https://cragzy-ai.onrender.com/user/create-assistant", formData, { withCredentials: true });  
-    console.log(response.data.data.isSetupComplete);
+    console.log("buildassis:",response.data.data.isSetupComplete);
   
       console.log("Assistant created successfully");
      console.log("Assistant created successfully",response.data.data );

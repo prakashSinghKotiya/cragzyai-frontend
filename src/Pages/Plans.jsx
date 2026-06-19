@@ -13,7 +13,7 @@ const PlansPage = () => {
    
 
     useEffect(() => {
-      if (!user.data.isSetupComplete) {
+      if (!user.isSetupComplete) {
         toast.error("Please complete the setup first");
         navigate("/create");
       }
@@ -44,10 +44,11 @@ const PlansPage = () => {
 
           const verifyingOrder = await axios.post("https://cragzy-ai.onrender.com/payment/verifying",response , { withCredentials: true } );
           
-          
+          console.log("plans:",verifyingOrder);
           
           if(verifyingOrder.data.success){
             toast.success("payment successfull");
+            console.log("plans:",verifyingOrder);
             setUser(verifyingOrder.data.data);
           }
           
@@ -92,21 +93,21 @@ const PlansPage = () => {
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
             <p className="text-gray-400">Current Plan</p>
-            <h2 className="text-3xl font-bold mt-2">{user.data.plan}</h2>
+            <h2 className="text-3xl font-bold mt-2">{user.plan}</h2>
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
             <p className="text-gray-400">Status</p>
             <h2 className="text-3xl font-bold mt-2 text-green-400">
-              {user.data.geminiStatus}
+              {user.geminiStatus}
             </h2>
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
             <p className="text-gray-400">Messages Left</p>
             <h2 className="text-3xl font-bold mt-2">
-                     {user.data.plan === "free"
-                     ? Math.max(0, user.data.requestLimit - user.data.totalMessages)
+                     {user.plan === "free"
+                     ? Math.max(0, user.requestLimit - user.totalMessages)
                         : "Unlimited"}
                     </h2>
           </div>
@@ -218,7 +219,7 @@ const PlansPage = () => {
     >
       <span className="absolute inset-0 bg-white/10 translate-x-[-150%] skew-x-12 transition-all duration-1000 group-hover/btn:translate-x-[250%]" />
       <span className="relative z-10"> 
-        {user?.data.plan === "pro" ? "Active Plan ✓" : "Upgrade Now →"}
+        {user?.plan === "pro" ? "Active Plan ✓" : "Upgrade Now →"}
       </span>
     </button>
   </div>

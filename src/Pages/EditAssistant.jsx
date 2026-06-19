@@ -9,10 +9,10 @@ export default function EditPage() {
 const {user}=useAuth();
   const [copied, setCopied] = useState(false);
 
-  const totalMsg = user?.data.plan === "free"? (user?.data.requestLimit || 0) - (user?.data.totalMessages || 0): "Unlimited";
+  const totalMsg = user?.plan === "free"? (user?.requestLimit || 0) - (user?.totalMessages || 0): "Unlimited";
 
     const remainingDays =
-  user?.data.proExpiresAt
+  user?.proExpiresAt
     ? Math.max(
         0,
         Math.ceil(
@@ -28,15 +28,15 @@ const {user}=useAuth();
 console.log("editassis:",user )
   // Replace with actual user data
   const assistant = {
-    name: user.data.assistantName || "My Assistant",
-    plan: user.data.plan || "Free Plan",
-    status: user.data.geminiStatus || "Active",
+    name: user.assistantName || "My Assistant",
+    plan: user.plan || "Free Plan",
+    status: user.geminiStatus || "Active",
     TokenLeft: totalMsg|| 200,
     expiresat:remainingDays
    
   };
 
-  const embedCode = `<script src="https://cragzyai-frontend.onrender.com/Aiassistant.js" data-user-id="${user?.data._id}"></script>`;
+  const embedCode = `<script src="https://cragzyai-frontend.onrender.com/Aiassistant.js" data-user-id="${user?._id}"></script>`;
 
   const copyCode = () => {
     navigator.clipboard.writeText(embedCode);
